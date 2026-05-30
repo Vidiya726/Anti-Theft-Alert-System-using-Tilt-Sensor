@@ -16,45 +16,105 @@ The board is programmable using the Arduino IDE (Integrated Development Environm
 
 
 ## Procedure:
+### Step 1: Set Up the Tinkercad Environment
 
-Step 1: Set Up the Tinkercad Environment
-•	Log in to Tinkercad: Open Tinkercad in your web browser and log in to your account.
-•	Create a New Circuit: In the Tinkercad dashboard, click on "Circuits" and then select "Create New Circuit."
-Step 2: Add Components to the Circuit
-•	Arduino Uno: Drag an Arduino Uno board from the components panel onto the workspace.
-•	SW200D Sensor: Search for the SW200D sensor in the components panel and drag it into the workspace.
-•	Breadboard: Drag a small breadboard to the workspace to help with wiring connections.
-•	Resistor (Optional): A resistor may not be necessary for this simple setup, but you can include it for more accurate readings.
-•	Wires: Use wires to connect the components.
+1. **Log in to Tinkercad**
+   - Open Tinkercad in your web browser.
+   - Log in to your account.
 
-Step 3: Connect the Tilt Sensor (SW-200D) to Arduino:
-•	SW200D Vout (Middle Pin) to Arduino Digital Pin (e.g., D2): Use a wire to connect the middle pin (Vout) of the tilt sensor to a digital input pin on the Arduino.
-•	SW200D GND (One Side Pin) to Breadboard GND Rail: Connect one side pin of the tilt sensor to the ground rail of the breadboard.
-•	SW200D VCC (Other Side Pin) to Breadboard 5V Rail: Connect the other side pin of the tilt sensor to the 5V rail of the breadboard.
-Step 4: Write the Arduino Code
-•	Code Editor: Click on the "Code" button at the top of the Tinkercad workspace to open the code editor.
-•	Set the Coding Mode: Ensure the editor is in "Text" mode to write your code in C/C++.
-•	Enter the Code: Write the following code from the SW200D sensor:
-Step 5: Simulate the Circuit
-•	Start Simulation: Click the "Start Simulation" button at the top of the workspace to run the circuit and code.
-•	Monitor Output: Open the serial monitor by clicking the "Serial Monitor" button 
-Step 6: Troubleshoot and Refine
-•	Check Connections: Ensure that all connections are made correctly on the breadboard and the Arduino.
-•	Adjust Code: If needed, tweak the code to improve accuracy or change the format of the output.
-Step 7: Save Your Work
-•	Stop Simulation: Click "Stop Simulation" to end the simulation.
-•	Save the Circuit: Click "Save" to keep your circuit design and code for future use.
+2. **Create a New Circuit**
+   - In the Tinkercad dashboard, click **Circuits**.
+   - Select **Create New Circuit**.
+
+### Step 2: Add Components to the Circuit
+
+1. **Arduino Uno**
+   - Drag an Arduino Uno board from the components panel onto the workspace.
+
+2. **SW200D Sensor**
+   - Search for the SW200D sensor in the components panel.
+   - Drag it into the workspace.
+
+3. **Breadboard**
+   - Drag a small breadboard into the workspace to help with wiring connections.
+
+4. **Resistor (Optional)**
+   - A resistor may not be necessary for this simple setup.
+   - You may include one for more accurate readings.
+
+5. **Wires**
+   - Use wires to connect the components.
+
+### Step 3: Connect the Tilt Sensor (SW200D) to Arduino
+
+#### Sensor Connections
+
+- **SW200D Vout (Middle Pin)** → Arduino Digital Pin **D2**
+- **SW200D GND (One Side Pin)** → Breadboard **GND Rail**
+- **SW200D VCC (Other Side Pin)** → Breadboard **5V Rail**
+
+#### Breadboard Wiring
+
+- Connect the **Vout (Middle Pin)** of the SW200D sensor to Arduino digital pin **D2**.
+- Connect one side pin of the sensor to the breadboard **GND rail**.
+- Connect the other side pin of the sensor to the breadboard **5V rail**.
+
+### Step 4: Write the Arduino Code
+
+1. Click the **Code** button at the top of the Tinkercad workspace.
+
+2. Ensure the editor is in **Text Mode**.
+
+3. Enter the Arduino code for the SW200D sensor.
+
+### Step 5: Simulate the Circuit
+
+1. Click **Start Simulation** to run the circuit and code.
+
+2. Open the **Serial Monitor** to observe the sensor output.
+
+### Step 6: Troubleshoot and Refine
+
+1. Verify that all wiring connections are correct.
+
+2. Modify the code if necessary to improve accuracy or change the output format.
+
+### Step 7: Save Your Work
+
+1. Click **Stop Simulation** to end the simulation.
+
+2. Click **Save** to store the circuit design and code for future use.
 
 ## Code:
+```
+int ledPin = 13;
+int inPin = 7;
 
+void setup()
+{
+    Serial.begin(9600);
 
+    pinMode(ledPin, OUTPUT);
+    pinMode(inPin, INPUT);
+}
 
+void loop()
+{
+    int val = digitalRead(inPin);
+
+    if (val == 0)
+    {
+        digitalWrite(ledPin, HIGH);
+    }
+    else
+    {
+        digitalWrite(ledPin, LOW);
+    }
+}
+```
 ## Output:
-
- 
-
+<img width="1035" height="761" alt="Screenshot 2026-05-30 135245" src="https://github.com/user-attachments/assets/59ecf89d-ed7f-40a9-8c60-1888827d7895" />
 
 ## Result:
-
-Result: Thus measure the Tilt Sensor using SW200D with Arduino UNO Board/ESP-32 using Tinker CAD has been Verified Successfully.
+Thus measure the Tilt Sensor using SW200D with Arduino UNO Board/ESP-32 using Tinker CAD has been Verified Successfully.
 
